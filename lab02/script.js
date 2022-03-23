@@ -64,7 +64,6 @@ let caseSensitive = false;
 function toggleCaseSensitive(event) {
   caseSensitive = !caseSensitive;
   event.classList.toggle("sensitive");
-  // searchTasks(); // because the search results may change
 }
 
 function searchTasks(event) {
