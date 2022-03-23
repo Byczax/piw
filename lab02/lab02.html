@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lab nr.2</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <div class="add-field">
+      <div class="tools">
+        <select name="select-list" id="select-list">
+          <option value="todo">Todo</option>
+          <option value="doing">Doing</option>
+          <option value="done">Done</option>
+        </select>
+        <div class="user-interaction">
+          <form>
+            <input required type="text" placeholder="write new list item" />
+            <button type="submit" onclick="addTask(this);">+</button>
+          </form>
+          <button onclick="undoRemove()">undo</button>
+        </div>
+        <div>
+          <h1>Want to find something?</h1>
+          <div>
+            <input
+              id="search-tasks"
+              type="text"
+              placeholder="Here, write here"
+              oninput="searchTasks(this)"
+            />
+            <button class="sensitive" onclick="toggleCaseSensitive(this)">
+              Sensitive?
+            </button>
+          </div>
+        </div>
+        <div id="modal">
+          <h1>Hey, are you ok with your action?</h1>
+          <button onclick="removeTask();confirmRemoval();">YES!</button>
+          <button onclick="confirmRemoval();">NO?</button>
+        </div>
+      </div>
+
+      <div class="lists">
+        <div class="app">
+          <h1 onclick="hide(this)">Todo</h1>
+          <ul id="todo"></ul>
+        </div>
+        <div class="app">
+          <h1 onclick="hide(this)">Doing</h1>
+          <ul id="doing"></ul>
+        </div>
+        <div class="app">
+          <h1 onclick="hide(this)">Done</h1>
+          <ul id="done"></ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
