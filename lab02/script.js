@@ -14,7 +14,7 @@ function addTask() {
   const li = document.createElement("li");
   li.innerHTML = `<input type="checkbox" onclick="completeTask(this)" class="check">
           <input type="text" value="${task.value}" class="task">
-          <button onclick="confirmRemoval(this)">-</button>
+          <button onclick="confirmRemoval(this)">-</button><br/>
           <span class="date"></span>`;
   list.insertBefore(li, list.children[0]);
   task.value = "";
