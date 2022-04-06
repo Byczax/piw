@@ -44,19 +44,18 @@ const NewStudent = (props) => {
 
   const HandleSubmit = (event) => {
     event.preventDefault();
-    console.log(input);
-    console.log(tagList);
+    input.tags = tagList
+    input.subjects = subList
     setStudents(
       students.concat({
         name: input.name,
         email: input.email,
         desc: input.desc,
-        tags: tagList.values,
-        subjects: subList.values
+        tags: input.tags,
+        subjects: input.subjects,
       })
     );
     setStudents(students.concat([input]));
-    // setInput("");
     alert("Form submitted!");
     console.log(students);
     handleMenuClick();
@@ -84,20 +83,18 @@ const NewStudent = (props) => {
         <label>
           Name:
           <input
+            required
             type="text"
             name="name"
-            value={input.name || ""}
             onChange={HandleChange}
           />
         </label>
         <label>
           Email:
           <input
-            // required
+            required
             type="email"
             name="email"
-            value={input.email || ""}
-            // value={input}
             onChange={HandleChange}
           />
         </label>
@@ -127,9 +124,8 @@ const NewStudent = (props) => {
         <label>
           Description:
           <textarea
-            // type="email"
+            required
             name="desc"
-            value={input.desc || ""}
             onChange={HandleChange}
           />
         </label>
