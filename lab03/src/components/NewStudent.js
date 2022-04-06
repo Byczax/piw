@@ -1,4 +1,4 @@
-import React, { Component, StrictMode, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/NewStudent.css";
 const NewStudent = (props) => {
@@ -12,22 +12,31 @@ const NewStudent = (props) => {
     const value = event.target.value;
     setInput((values) => ({ ...values, [name]: value }));
   };
-  let tagInput = React.createRef();
+
+  const [tagInput, setTagInput] = useState("");
+  const handleTagInput = (e) => {
+    setTagInput(e.target.value);
+  };
   const HandleAddTag = (event) => {
     event.preventDefault();
-    setTag(tagList.concat([tagInput.current.value]));
-    console.log(tagList);
-    console.log(tagInput.current.value);
-    // tagInput.setState({tags: ""});
-    tagInput.refs.value = '';
-    // this.tagInput.value = "";
-    // tagInput.current
-    // tagInput.current.value = "";
-    // console.log(tagInput.current);
-    // document.getElementById("tags").value = "";
-    // tagInput.setState(value = "");
-    // setState(tagInput: "")
-    // tagInput.setState = "";
+    if (tagInput === "") {
+      return;
+    }
+    setTag(tagList.concat([tagInput]));
+    setTagInput("");
+  };
+
+  const [subInput, setSubInput] = useState("");
+  const handleSubInput = (e) => {
+    setSubInput(e.target.value);
+  };
+  const HandleAddSub = (event) => {
+    event.preventDefault();
+    if (subInput === "") {
+      return;
+    }
+    setSub(subList.concat([subInput]));
+    setSubInput("");
   };
 
   const navigate = useNavigate();
@@ -36,22 +45,21 @@ const NewStudent = (props) => {
   const HandleSubmit = (event) => {
     event.preventDefault();
     console.log(input);
-    // setInput(input.tags.split(" "))
-    // setStudents(
-    //   students.concat(
-    //     // {
-    //     //   input.name
-
-    //     // }
-
-    //   )
-    // )
+    console.log(tagList);
+    setStudents(
+      students.concat({
+        name: input.name,
+        email: input.email,
+        desc: input.desc,
+        tags: tagList.values,
+        subjects: subList.values
+      })
+    );
     setStudents(students.concat([input]));
-    setInput("");
+    // setInput("");
     alert("Form submitted!");
-    {
-      handleMenuClick();
-    }
+    console.log(students);
+    handleMenuClick();
   };
 
   const GenerateList = (tags) => {
@@ -85,7 +93,7 @@ const NewStudent = (props) => {
         <label>
           Email:
           <input
-          required
+            // required
             type="email"
             name="email"
             value={input.email || ""}
@@ -99,10 +107,8 @@ const NewStudent = (props) => {
           <input
             type="text"
             name="tags"
-            id="tags"
-            // value={input.tags || ""}
-            onChange={HandleChange}
-            ref={tagInput}
+            value={tagInput}
+            onChange={handleTagInput}
           />
           <button onClick={HandleAddTag}>add tag</button>
           {GenerateList(tagList)}
@@ -112,10 +118,11 @@ const NewStudent = (props) => {
           <input
             type="text"
             name="subjects"
-            value={[input.subjects] || ""}
-            onChange={HandleChange}
+            value={subInput}
+            onChange={handleSubInput}
           />
-          <button>add subject</button>
+          <button onClick={HandleAddSub}>add subject</button>
+          {GenerateList(subList)}
         </label>
         <label>
           Description:
