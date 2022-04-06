@@ -1,0 +1,68 @@
+:root {
+  background-color: #282c34;
+  color: white;
+  --mainColor: black;
+  margin: 0;
+}
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  
+}
+
+.sites {
+  display: flex;
+  background: #55d6aa;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.sites li:nth-last-child(2) {
+  margin-left: auto;
+  margin-right: 2rem;
+}
+
+nav li {
+  display: inline-block;
+  margin-right: 2rem;
+  padding-top: 1rem;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: var(--mainColor);
+}
+
+Link {
+  text-decoration: none;
+}
+
+nav li:hover {
+  color: black;
+}
+
+nav li::before {
+  content: "";
+  display: block;
+  height: 5px;
+  background-color: var(--mainColor);
+
+  position: absolute;
+  top: 0;
+  width: 0%;
+
+  transition: all ease-in-out 250ms;
+}
+
+nav li:hover::before {
+  width: 100%;
+}
+
+.menu {
+  text-decoration: none;
+  color: black;
+  /* color: red; */
+}
