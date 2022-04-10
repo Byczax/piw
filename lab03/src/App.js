@@ -23,7 +23,7 @@ function App() {
   const mails = [];
 
   return (
-    <BrowserRouter basename="/lab03/build">
+    <BrowserRouter basename="/lab03">
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Students students={students} setStudents={setStudents} mails={mails}/>} />
