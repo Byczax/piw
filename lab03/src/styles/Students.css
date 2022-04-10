@@ -1,35 +1,38 @@
 .content {
-    display: flex;
-    flex-direction: row;
-    /* grid-template-columns: auto auto auto; */
-    margin: 0 auto;
-    gap: 5rem;
-    flex-wrap: wrap;
-    /* display: flex; */
+  display: flex;
+  flex-direction: row;
+  /* grid-template-columns: auto auto auto; */
+  margin: 0 auto;
+  gap: 5rem;
+  flex-wrap: wrap;
+  /* display: flex; */
 }
-
 
 .ads {
-    padding: 1rem;
-    list-style-type: none;
-    background-color: #454c5a;
-    border-radius: 50px;
-    text-align: center;
+  padding: 1rem;
+  list-style-type: none;
+  background-color: #454c5a;
+  border-radius: 50px;
+  text-align: center;
 }
 .ads h3 {
-    text-align: center;
+  text-align: center;
 }
 .ads ul {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 .ads ul li {
-    background-color: #282c34;
-    padding: .5rem;
-    border-radius: 50px;
-    margin-bottom: .5rem;
-}
-.multiple {
-    column-count: 2;
+  background-color: #282c34;
+  padding: 0.5rem;
+  border-radius: 50px;
+  margin-bottom: 0.5rem;
 }
 
+.ads:hover {
+  background-color: #626c80;
+}
+
+.multiple {
+  column-count: 2;
+}
