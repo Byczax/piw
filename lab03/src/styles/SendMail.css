@@ -1,4 +1,60 @@
-.new-mail {
-    display: flex;
-    flex-direction: column;
+:root {
+    --trans: 130px; 
 }
+.new-mail {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal {
+  background-color: #215644;
+  padding: 1rem 20rem;
+  border-radius: 50px;
+  position: fixed;
+  top: -100px;
+  display: none;
+  /* left: 50%; */
+  /* transform: translate(-50%, -50%); */
+  /* display: none; */
+  
+}
+
+.modal-move {
+    display: block;
+    /* left: 50%; */
+  /* height: 100px; */
+  /* width: 100px; */
+  /* background: #151f28; */
+  /* transition: 0.5s; */
+  animation: modal-move 5s forwards;
+}
+
+
+@keyframes modal-move {
+  0% {
+    transform: translateY(-50px);
+  }
+  /* 20% { */
+    /* transform: translateY(calc(var(--trans)-10px)); */
+  /* } */
+  20% {
+    transform: translateY(var(--trans));
+  }
+  50% {
+    transform: translateY(var(--trans));
+  }
+  100% {
+    transform: translateY(-100px);
+  }
+}
+
+.dark {
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+  }

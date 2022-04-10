@@ -1,5 +1,8 @@
 import React from "react";
 import SendMail from "./SendMail";
+import { useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import { Redirect } from 'react-router-dom';
 class Groups extends React.Component {
   constructor(props) {
     super(props);
@@ -18,6 +21,8 @@ class Groups extends React.Component {
       query: event.target.value,
     });
   };
+
+  
 
   GenerateList = (tags) => {
     return (
@@ -49,6 +54,18 @@ class Groups extends React.Component {
     );
   };
 
+  // HandleGroupClick = () => navigate("/sendMail", { replace: true });
+  Home = () => {
+    const navigate = useNavigate();
+    navigate("/sendMail", { replace: true });
+    // navigate("/about")
+    // return (
+    //     <>
+    //       <h1 style={{color:"green"}}>GeeksForGeeks</h1>
+    //       <button onClick={()=>}>About</button>
+    //     </>
+    // )
+  };
   sendEmailToGroup = (event, value) => {
     // console.log("click");
     // console.log(event.target)
@@ -56,22 +73,30 @@ class Groups extends React.Component {
     const emails = this.props.groups
       .filter((it) => it.name.includes(value))
       .map((it, i) => {
-        return it.members.map(x => x[1]);
+        return it.members.map((x) => x[1]);
       });
-
-      console.log(emails)
-      SendMail(emails)
-      // navigate("/newMail", { replace: true });
+    console.log(emails);
+    this.Home();
+    // <Redirect to="/sendEmail" />
+    // const navigate = ;
+    // const history = useHistory();
+    // const home = () => {
+    //     history.push("/newMail");
+    // }
+    // this.HandleGroupClick();
+    // SendMail(emails);
+    // navigate("/sendMail", { replace: true });
+    // navigate("/newMail", { replace: true });
     //calculate your data here
     //then redirect:
     // this.props.history.push({
-      // pathname: '/SendMail',
-        // state: emails // your data array of objects
+    // pathname: '/SendMail',
+    // state: emails // your data array of objects
     // })
-    {/* context.router.push({ //browserHistory.push should also work here
+    /* context.router.push({ //browserHistory.push should also work here
       pathname: "./SendMail.js",
       state: {yourCalculatedData: emails}
-    }); */}
+    }); */
   };
   render() {
     console.log(this.props.groups);

@@ -1,17 +1,25 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import "../styles/SendMail.css";
+import { useNavigate } from "react-router-dom";
 const SendMail = (props) => {
   const { mails } = props;
   console.log(mails);
   const [input, setInput] = useState({});
+  const [modal, setModal] = useState("modal");
   const HandleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
     setInput((values) => ({ ...values, [name]: value }));
   };
+  const navigate = useNavigate();
+  const handleMenuClick = () => navigate("/", { replace: true });
   const HandleSubmit = (event) => {
     event.preventDefault();
+    console.log(input);
+    setModal("modal modal-move");
+    setTimeout(function () {
+      handleMenuClick();
+    }, 4000);
     // input.tags = tagList;
     // input.subjects = subList;
     // setStudents(
@@ -30,6 +38,9 @@ const SendMail = (props) => {
   };
   return (
     <div className="app">
+      <div className={modal} onAnimationEnd={() => setModal("modal")}>
+        Email send!
+      </div>
       <h1>New mail</h1>
       <form className="new-mail" onSubmit={HandleSubmit}>
         <label>

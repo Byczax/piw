@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/Students.css";
 const Student = (props) => {
   const { students } = props;
@@ -12,6 +13,9 @@ const Student = (props) => {
   const HandleChange = (event) => {
     setOptionState(event.target.value);
   };
+
+  const navigate = useNavigate();
+  const handleStudentClick = () => navigate("/sendMail", { replace: true });
 
   const GenerateList = (tags) => {
     return (
@@ -40,7 +44,7 @@ const Student = (props) => {
     )
     .map((it, i) => {
       return (
-        <ul key={i} className="ads">
+        <ul key={i} className="ads" onClick={handleStudentClick}>
           <li>
             <h3>Name</h3> {it.name}
           </li>
