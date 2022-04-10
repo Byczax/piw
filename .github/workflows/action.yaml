@@ -1,5 +1,10 @@
 name: deploy react part
 on: [push]
+
+defaults:
+  run:
+    working-directory: lab03
+    
 jobs:
   check-bats-version:
     runs-on: ubuntu-latest
