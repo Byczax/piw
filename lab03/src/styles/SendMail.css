@@ -1,0 +1,4 @@
+.new-mail {
+    display: flex;
+    flex-direction: column;
+}
