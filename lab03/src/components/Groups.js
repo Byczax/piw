@@ -1,8 +1,5 @@
 import React from "react";
-import SendMail from "./SendMail";
-import { useNavigate } from "react-router-dom";
-import { useHistory } from "react-router-dom";
-import { Redirect } from 'react-router-dom';
+
 class Groups extends React.Component {
   constructor(props) {
     super(props);
@@ -55,9 +52,13 @@ class Groups extends React.Component {
   };
 
   // HandleGroupClick = () => navigate("/sendMail", { replace: true });
-  Home = () => {
-    const navigate = useNavigate();
-    navigate("/sendMail", { replace: true });
+  Home = (emails) => {
+    // event.preventDefault();
+    // const navigate = useNavigate();
+    window.location.assign('sendMail');
+    console.log(emails[0])
+    // this.props.navigate("/sendMail", { replace: true });
+    // console.log("A")
     // navigate("/about")
     // return (
     //     <>
@@ -76,7 +77,7 @@ class Groups extends React.Component {
         return it.members.map((x) => x[1]);
       });
     console.log(emails);
-    this.Home();
+    this.Home(emails);
     // <Redirect to="/sendEmail" />
     // const navigate = ;
     // const history = useHistory();
