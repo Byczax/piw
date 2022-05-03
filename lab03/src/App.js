@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route, HashRouter } from "react-router-dom";
 import { useState } from "react";
 
 import "./styles/App.css";
@@ -22,8 +22,22 @@ function App() {
   ])
   const mails = [];
 
+  fetch('https://jsonplaceholder.typicode.com/todos/1')
+    .then(response => response.json())
+    .then(json => console.log(json))
+
+  axios.get('https://jsonplaceholder.typicode.com/todos/1')
+    .then(response => {
+      console.log(response.data);
+    })
+
+    axios.get('/lab03/data/data.json')
+    .then(response => {
+      console.log(response.data);
+    })
+
   return (
-    <BrowserRouter basename="/lab03/build">
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Students students={students} setStudents={setStudents} mails={mails}/>} />
@@ -35,7 +49,7 @@ function App() {
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
