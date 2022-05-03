@@ -1,8 +1,11 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useReducer, useState } from "react";
+import { Link } from "react-router-dom";
 import "../styles/Students.css";
+import { initState, reducer } from "./ReducerContext";
+
 const Student = (props) => {
   const { students } = props;
+  const [state, dispatcher] = useReducer(reducer, initState);
 
   const [studentsQuery, setStudentsQuery] = useState("");
   const [optionState, setOptionState] = useState("tags");
@@ -13,9 +16,6 @@ const Student = (props) => {
   const HandleChange = (event) => {
     setOptionState(event.target.value);
   };
-
-  const navigate = useNavigate();
-  const handleStudentClick = () => navigate("/sendMail", { replace: true });
 
   const GenerateList = (tags) => {
     return (
@@ -32,6 +32,13 @@ const Student = (props) => {
     );
   };
 
+  // const FetchPicture = () => {
+  //   axios.get('https://random-memer.herokuapp.com/')
+  //   .then(response => {
+  //     return response.data;
+  //   })
+  // }
+
   const StudentsQueryHTML = students
     .filter((it) =>
       optionState === "desc"
@@ -44,7 +51,10 @@ const Student = (props) => {
     )
     .map((it, i) => {
       return (
-        <ul key={i} className="ads" onClick={handleStudentClick}>
+        <ul key={i} className="ads">
+          <li>
+            <img src={it.img} alt="student" />
+          </li>
           <li>
             <h3>Name</h3> {it.name}
           </li>
@@ -57,6 +67,13 @@ const Student = (props) => {
           <li>
             <h3>Subjects</h3> {GenerateList(it.subjects)}
           </li>
+          <li>
+            <button className="observe" onClick={()=>dispatcher({type: "TOGGLE_STUDENT", payload: i})}>{state.students.includes(i) ? state.on : state.off}</button>
+          </li>
+          <li>
+          <Link to={"/sendMail"} className="sendMail">Wyślij wiadomość</Link>
+          </li>
+          
         </ul>
       );
     });

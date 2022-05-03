@@ -1,0 +1,8 @@
+.login {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    /* width: 400px; */
+    /* margin: 16px auto; */
+    font-family: Tahoma, Geneva, sans-serif;
+}

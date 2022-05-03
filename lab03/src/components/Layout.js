@@ -25,6 +25,11 @@ const Layout = () => {
               new student
             </Link>
           </li>
+          <li>
+            <Link className="menu" to="/logIn">
+              User
+            </Link>
+          </li>
         </ul>
       </nav>
       <div className="content">

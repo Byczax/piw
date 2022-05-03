@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import "../styles/SendMail.css";
 import { useNavigate } from "react-router-dom";
 const SendMail = (props) => {
@@ -6,15 +6,21 @@ const SendMail = (props) => {
   console.log(mails);
   const [input, setInput] = useState({});
   const [modal, setModal] = useState("modal");
-  const HandleChange = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
-    setInput((values) => ({ ...values, [name]: value }));
-  };
+
+  const titleRef = useRef();
+  const mailRef = useRef();
+  const bodyRef = useRef();
+
   const navigate = useNavigate();
   const handleMenuClick = () => navigate("/", { replace: true });
+
   const HandleSubmit = (event) => {
     event.preventDefault();
+    setInput({
+      title: titleRef.current.value,
+      mail: mailRef.current.value,
+      body: bodyRef.current.value,
+    });
     console.log(input);
     setModal("modal modal-move");
     setTimeout(function () {
@@ -46,17 +52,17 @@ const SendMail = (props) => {
         <label>
           Title:
           <br />
-          <input required type="text" name="title" onChange={HandleChange} />
+          <input required type="text" name="title" ref={titleRef} />
         </label>
         <label>
           From (email):
           <br />
-          <input required type="email" name="email" onChange={HandleChange} />
+          <input required type="email" name="email" ref={mailRef} />
         </label>
         <label>
           Body:
           <br />
-          <textarea required name="desc" onChange={HandleChange} />
+          <textarea required name="desc" ref={bodyRef} />
         </label>
         <input type="submit" value="Send mail(s)" />
       </form>

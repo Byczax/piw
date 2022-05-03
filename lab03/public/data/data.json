@@ -3,23 +3,48 @@
     {
       "name": "Jan Kowalski",
       "email": "example@example.com",
-      "decs": "Sample description",
+      "desc": "Sample description",
       "tags": ["c++", "C#"],
-      "subjects": ["PIW", "PiPG", "OIAK"]
+      "subjects": ["PIW", "PiPG", "OIAK"],
+      "img": "https://i.picsum.photos/id/1023/70/100.jpg?hmac=vaXg83BvAjKGLnhab2KLMlJLw7Vb0yVY8r3Mm-gbumg"
     },
     {
       "name": "Jan Nowak",
       "email": "example@example.com",
       "desc": "Another information",
       "tags": ["c%", "F$"],
-      "subjects": ["PIW", "PiPG"]
+      "subjects": ["PIW", "PiPG"],
+      "img": "https://i.picsum.photos/id/386/70/100.jpg?hmac=dr_aSHadmX0jVny9Gc1g84cE0B3HUOaTSQjWBqKM2U4"
     },
     {
       "name": "Jan Jankowski",
       "email": "example@example.com",
       "desc": "Guten tagen",
       "tags": ["S*", "@!"],
-      "subjects": ["PIW", "PiPG"]
+      "subjects": ["PIW", "PiPG"],
+      "img": "https://i.picsum.photos/id/477/70/100.jpg?hmac=OrqcSvNbQVjH7llOjHnnX01SBnFdeitOJS6AE84ptyg"
+    }
+  ],
+  "groups": [
+    {
+      "name": "Piwowcy",
+      "members": [
+        ["Jan Nowak", "example@example.com"],
+        ["Michał Kowalski", "example@example.com"]
+      ],
+      "theme": "Frontend",
+      "desc": "sample description",
+      "subjects": ["PIW", "OIAK"]
+    },
+    {
+      "name": "Gierkowcy",
+      "members": [
+        ["Józef Baszak", "example@example.com"],
+        ["Kamil Górski", "example@example.com"]
+      ],
+      "theme": "Backend",
+      "desc": "ugh, there is something",
+      "subjects": ["PIPG", "SO2"]
     }
   ]
 }

@@ -19,7 +19,7 @@
   padding: 1rem;
 }
 
-.sites li:nth-last-child(2) {
+.sites li:nth-last-child(1) {
   margin-left: auto;
   margin-right: 2rem;
 }
