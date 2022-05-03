@@ -10,6 +10,8 @@ import Announcement from "./components/Announcement";
 import NewStudent from "./components/NewStudent"; 
 import NewGroup from "./components/NewGroup";
 import SendMail from "./components/SendMail";
+import axios from 'axios';
+
 function App() {
   const [students, setStudents] = useState([
     {name:"Jan Kowalski",email:"example@example.com", desc:"Sample description", tags:["c++","C#"],subjects:["PIW","PiPG","OIAK"]},
