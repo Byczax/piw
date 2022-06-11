@@ -29,8 +29,8 @@
     {
       "name": "Piwowcy",
       "members": [
-        ["Jan Nowak", "example@example.com"],
-        ["Michał Kowalski", "example@example.com"]
+        {"name":"Jan Nowak", "email":"example@example.com"},
+        {"name":"Michał Kowalski", "email":"example@example.com"}
       ],
       "theme": "Frontend",
       "desc": "sample description",
@@ -39,8 +39,8 @@
     {
       "name": "Gierkowcy",
       "members": [
-        ["Józef Baszak", "example@example.com"],
-        ["Kamil Górski", "example@example.com"]
+        {"name":"Józef Baszak","email": "example@example.com"},
+        {"name":"Kamil Górski","email": "example@example.com"}
       ],
       "theme": "Backend",
       "desc": "ugh, there is something",
