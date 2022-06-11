@@ -38,7 +38,6 @@ const Student = (props) => {
   //     return response.data;
   //   })
   // }
-
   const StudentsQueryHTML = students
     .filter((it) =>
       optionState === "desc"

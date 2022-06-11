@@ -65,3 +65,11 @@ nav li:hover::before {
   color: black;
   /* color: red; */
 }
+
+.menu-button {
+  background-color: transparent;
+  border: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+}

@@ -34,13 +34,13 @@ class Groups extends React.Component {
         );
     };
 
-    GenerateUserList = (tags) => {
+    GenerateUserList = (members) => {
         return (
             <ul className="multiple">
-                {tags.map((it, i) => {
+                {members.map((it, i) => {
                     return (
                         <li key={i}>
-                            {it[0]}
+                            {it.name}
                             <br />
                         </li>
                     );
@@ -98,7 +98,7 @@ class Groups extends React.Component {
     }); */
     };
     render() {
-        console.log(this.props.groups);
+        // console.log(this.props.groups);
         const GroupsQueryHTML = this.props.groups
             .filter((it) =>
                 this.state.searchOption === "desc"
